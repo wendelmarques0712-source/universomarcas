@@ -1,123 +1,122 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parceiros Universo</title>
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap');
+
+  /* Container principal (transparente) */
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  /* Estilo base dos Cards */
+  .solution-card {
+    background-color: #FFFFFF;
+    border-top: 6px solid #F1C400;
+    border-radius: 12px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 16px rgba(21, 31, 109, 0.05);
+    border-left: 1px solid #F4F6F9;
+    border-right: 1px solid #F4F6F9;
+    border-bottom: 1px solid #F4F6F9;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  /* Efeito Hover (passar o mouse) */
+  .solution-card:hover {
+    background-color: #F8FAFC; /* Fundo muda sutilmente */
+    transform: translateY(-8px); /* Eleva o card */
+    box-shadow: 0 16px 32px rgba(21, 31, 109, 0.12); /* Sombra mais forte */
+  }
+
+  /* Textos dentro do Card */
+  .sol-num {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #F1C400;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .sol-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #41B6E6; /* Azul claro (Ciano) */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .sol-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #151F6D; /* Azul escuro (Navy) */
+    line-height: 1.35;
+    margin-bottom: 16px;
+  }
+
+  .sol-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #64748b; /* Cinza para leitura fácil */
+    line-height: 1.65;
+  }
+
+  /* Responsividade para Celular e Tablet */
+  @media (max-width: 992px) {
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #FFFFFF; /* Fundo branco */
-      font-family: 'Poppins', Arial, sans-serif;
+  @media (max-width: 768px) {
+    .solutions-grid {
+      grid-template-columns: 1fr;
+      padding: 10px;
     }
-
-    .universo-partners {
-      width: 100%;
-      height: 88px;
-      padding: 0;
-      overflow: hidden;
-      background: #FFFFFF;
-      border-block: 1px solid #E2E8F0; /* Borda cinza bem sutil */
-      display: flex;
-      align-items: center;
+    
+    .solution-card {
+      padding: 32px 24px;
     }
+  }
+</style>
 
-    .universo-partners__inner {
-      width: min(1200px, calc(100% - 32px));
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      /* Efeito de esmaecimento (fade) nas bordas laterais */
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-
-    .universo-partners__track {
-      display: flex;
-      width: max-content;
-      align-items: center;
-      animation: universoScroll 25s linear infinite;
-    }
-
-    /* O uso de grupos garante a matemática perfeita para o loop */
-    .track-group {
-      display: flex;
-      align-items: center;
-      padding-right: 64px; /* O "gap" (espaçamento) fica aqui */
-    }
-
-    .track-group img {
-      height: 40px; /* Altura ideal dos logos */
-      width: auto;
-      object-fit: contain;
-      display: block;
-      /* Como a imagem já é cinza, não precisamos de filtros, apenas a exibimos pura */
-    }
-
-    /* Animação que empurra exatamente 50% (um grupo inteiro) */
-    @keyframes universoScroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* Pausa a animação caso o usuário prefira movimento reduzido no sistema */
-    @media (prefers-reduced-motion: reduce) {
-      .universo-partners__track {
-        animation: none;
-      }
-    }
-
-    /* Responsividade para Celulares */
-    @media (max-width: 640px) {
-      .universo-partners {
-        height: 64px;
-      }
-      
-      .universo-partners__inner {
-        width: 100%;
-      }
-
-      .track-group {
-        padding-right: 32px; /* Reduz espaçamento no mobile */
-      }
-
-      .track-group img {
-        height: 28px; /* Logos menores no mobile */
-      }
-
-      .universo-partners__track {
-        animation-duration: 18s; /* Velocidade um pouco mais rápida na tela menor */
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Seção do Carrossel Universo -->
-  <section class="universo-partners" aria-label="Marcas parceiras">
-    <div class="universo-partners__inner">
-      <div class="universo-partners__track">
-        
-        <!-- GRUPO 1 -->
-        <div class="track-group">
-          <img src="image_1d0a1a.png" alt="VR Lub, Seineca, Ingrax, Wega, Tecbril, Paraflu">
-        </div>
-
-        <!-- GRUPO 2 (Duplicado exato para fechar o loop infinito) -->
-        <div class="track-group" aria-hidden="true">
-          <img src="image_1d0a1a.png" alt="VR Lub, Seineca, Ingrax, Wega, Tecbril, Paraflu">
-        </div>
-
-      </div>
+<!-- ESTRUTURA HTML -->
+<div class="solutions-grid">
+  
+  <!-- BOX 01 -->
+  <div class="solution-card">
+    <div class="sol-num">01</div>
+    <div class="sol-eyebrow">Especificação incorreta</div>
+    <div class="sol-title">Produto errado destrói o motor</div>
+    <div class="sol-text">
+      Nossa equipe identifica a especificação correta antes de qualquer pedido. Sem retorno, sem retrabalho, sem perda de confiança.
     </div>
-  </section>
+  </div>
 
-</body>
-</html>
+  <!-- BOX 02 -->
+  <div class="solution-card">
+    <div class="sol-num">02</div>
+    <div class="sol-eyebrow">Velocidade de entrega</div>
+    <div class="sol-title">Tenha o produto sempre às suas mãos</div>
+    <div class="sol-text">
+      Entregamos em até 30 minutos em São Luís e em até 24h para o Interior. Pedido feito, produto na mão. Seu cliente não espera.
+    </div>
+  </div>
+
+  <!-- BOX 03 -->
+  <div class="solution-card">
+    <div class="sol-num">03</div>
+    <div class="sol-eyebrow">Estoque garantido</div>
+    <div class="sol-title">Frota parada por falta de produto não acontece aqui</div>
+    <div class="sol-text">
+      700m² de armazém organizado com estoque garantido. O produto que você precisa está disponível quando você precisar.
+    </div>
+  </div>
+
+</div>
