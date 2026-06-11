@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parceiros Universo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #FFFFFF; /* Fundo branco */
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .universo-partners {
+      width: 100%;
+      height: 88px;
+      padding: 0;
+      overflow: hidden;
+      background: #FFFFFF;
+      border-block: 1px solid #E2E8F0; /* Borda cinza bem sutil */
+      display: flex;
+      align-items: center;
+    }
+
+    .universo-partners__inner {
+      width: min(1200px, calc(100% - 32px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      /* Efeito de esmaecimento (fade) nas bordas laterais */
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .universo-partners__track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      animation: universoScroll 25s linear infinite;
+    }
+
+    /* O uso de grupos garante a matemática perfeita para o loop */
+    .track-group {
+      display: flex;
+      align-items: center;
+      padding-right: 64px; /* O "gap" (espaçamento) fica aqui */
+    }
+
+    .track-group img {
+      height: 40px; /* Altura ideal dos logos */
+      width: auto;
+      object-fit: contain;
+      display: block;
+      /* Como a imagem já é cinza, não precisamos de filtros, apenas a exibimos pura */
+    }
+
+    /* Animação que empurra exatamente 50% (um grupo inteiro) */
+    @keyframes universoScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Pausa a animação caso o usuário prefira movimento reduzido no sistema */
+    @media (prefers-reduced-motion: reduce) {
+      .universo-partners__track {
+        animation: none;
+      }
+    }
+
+    /* Responsividade para Celulares */
+    @media (max-width: 640px) {
+      .universo-partners {
+        height: 64px;
+      }
+      
+      .universo-partners__inner {
+        width: 100%;
+      }
+
+      .track-group {
+        padding-right: 32px; /* Reduz espaçamento no mobile */
+      }
+
+      .track-group img {
+        height: 28px; /* Logos menores no mobile */
+      }
+
+      .universo-partners__track {
+        animation-duration: 18s; /* Velocidade um pouco mais rápida na tela menor */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Seção do Carrossel Universo -->
+  <section class="universo-partners" aria-label="Marcas parceiras">
+    <div class="universo-partners__inner">
+      <div class="universo-partners__track">
+        
+        <!-- GRUPO 1 -->
+        <div class="track-group">
+          <img src="image_1d0a1a.png" alt="VR Lub, Seineca, Ingrax, Wega, Tecbril, Paraflu">
+        </div>
+
+        <!-- GRUPO 2 (Duplicado exato para fechar o loop infinito) -->
+        <div class="track-group" aria-hidden="true">
+          <img src="image_1d0a1a.png" alt="VR Lub, Seineca, Ingrax, Wega, Tecbril, Paraflu">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
